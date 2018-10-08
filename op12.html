@@ -12,35 +12,26 @@
         robotArm.speed = 1000;
 
         // Je eigen code plaats je hier.
-        var something = 8;
-        for (i=0; i <9; i++) {
-        robotArm.grab();
-        color = robotArm.scan();
-        
-        
-        if(color == "red") {
-            for (j=0; j < i; j++) {
-            robotArm.moveRight();    
-            
+        for (colum = 0; colum < 9; colum++) {
+            robotArm.grab();
+            color = robotArm.scan();
+            if (color == "red") {
+                for (i = 0; i < 9 - colum; i++) {
+                    robotArm.moveRight();
+                }
+                robotArm.drop();
+                for (j = 0; j < 9 - colum; j++) {
 
+                    robotArm.moveLeft();
+                }
+            } else {
+                robotArm.drop();
             }
-            robotArm.drop();
-            
-            
-          
-        }else {
-            robotArm.drop();
-            
-            
+            robotArm.moveRight();
         }
 
-        // for (k=0; k<9; k++) {
-        //     robotArm.moveLeft();
 
-        // }
-        robotArm.moveRight();
-        }
-        
+
 
 
 

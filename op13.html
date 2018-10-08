@@ -4,51 +4,45 @@
     <canvas id="canvas" width="800" height="600"></canvas>
     <script src="./robot-arm.js"></script>
     <script>
-        // Robotarm bibliotheek inladen
         var canvas = document.getElementById("canvas");
         var robotArm = new RobotArm(canvas);
 
-        robotArm.loadLevel("exercise 12");
+        robotArm.randomLevel(1, 8);
         robotArm.speed = 1000;
 
         // Je eigen code plaats je hier.
-        var something = 8;
-        for (i=0; i <9; i++) {
-        robotArm.grab();
-        color = robotArm.scan();
+        for (colum = 0; colum < 10; colum++) {
+            robotArm.grab();
+            color = robotArm.scan();
+
+            if (color == null) {
+
+
+            }
+            if (color == "red", "white", "blue", "green") {
+                for (i = 0; i < 9 - colum; i++) {
+                    robotArm.moveRight();
+                }
+                robotArm.drop();
+                for (j = 0; j < 9 - colum; j++) {
+
+                    robotArm.moveLeft();
+                }
+            } else {
+                robotArm.drop();
+            }
+            robotArm.moveLeft();
+
+
+
         }
-        
-        
-        // if(color == "red") {
-        //     for (j=0; j < i; j++) {
-        //     robotArm.moveRight();    
-            
-
-        //     }
-        //     robotArm.drop();
-            
-            
-          
-        // }else {
-        //     robotArm.drop();
-            
-            
-        // }
-
-        // // for (k=0; k<9; k++) {
-        // //     robotArm.moveLeft();
-
-        // // }
-        // robotArm.moveRight();
-        // }
-        
 
 
 
 
-        // De door jou opgegeven instructies uitvoeren
+
+
+
+
         robotArm.run();
     </script>
-</body>
-
-</html>
