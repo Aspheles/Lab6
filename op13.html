@@ -1,5 +1,3 @@
-<html>
-
 <body>
     <canvas id="canvas" width="800" height="600"></canvas>
     <script src="./robot-arm.js"></script>
@@ -14,35 +12,21 @@
         for (colum = 0; colum < 10; colum++) {
             robotArm.grab();
             color = robotArm.scan();
-
             if (color == null) {
-
-
+                break;
             }
-            if (color == "red", "white", "blue", "green") {
-                for (i = 0; i < 9 - colum; i++) {
-                    robotArm.moveRight();
-                }
-                robotArm.drop();
-                for (j = 0; j < 9 - colum; j++) {
-
-                    robotArm.moveLeft();
-                }
-            } else {
-                robotArm.drop();
+            for (i = 0; i < 9 - colum; i++) {
+                robotArm.moveRight();
             }
-            robotArm.moveLeft();
+            robotArm.drop();
+            for (j = 0; j < 9 - colum; j++) {
 
-
-
+                robotArm.moveLeft();
+            }
         }
-
-
-
-
-
-
-
 
         robotArm.run();
     </script>
+</body>
+
+</html>
